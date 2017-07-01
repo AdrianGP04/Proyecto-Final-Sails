@@ -6,9 +6,21 @@
  */
 
 const waterfall = require('async/waterfall');
+const bcrypt = require('bcrypt');
 
  function createUser(req, res){
     waterfall([
+        (callback) => {
+            bcrypt.hash(req.body.password, 8, (err, hashedPassword) => {
+                // TODO: Show the error in a nice way
+                if (err) {
+                    console.log(err);
+                    return res.status(500).send('Error');
+                }
+                req.body.password = hashedPassword;
+                callback(null);
+            });
+        },
         (cbwtf) => {
             User.create({
                 username: req.body.username,
@@ -18,7 +30,6 @@ const waterfall = require('async/waterfall');
         },
     ], (err, user) => {
         if (err) {
-            // TODO: Show the error in a nice way
             // TODO: Validate
             console.log(err);
             return res.status(500).send('Error');
