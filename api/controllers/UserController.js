@@ -36,8 +36,22 @@ const bcrypt = require('bcrypt');
         }
         return res.status(201).view('homepage');
     });
- }
+}
+
+function auth(req, res){
+    return res.login({
+        successRedirect: '/users'
+    });
+}
+
+
+function logout(req, res){
+    req.logout();
+    return res.ok('Logged out successfully.');
+}
 
 module.exports = {
 	createUser,
+    auth,
+    logout,
 };
