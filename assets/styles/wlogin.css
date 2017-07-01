@@ -1,0 +1,17 @@
+#body{
+  margin: 6%;
+}
+.error{
+  background-color: lightpink;
+  border: 8px solid red;
+  padding: 5%;
+  text-align: center;
+  font-family: verdana;
+  font-size: 35px;
+}
+img{
+  width: 40%;
+}
+#again{
+  font-size: 25px;
+}
