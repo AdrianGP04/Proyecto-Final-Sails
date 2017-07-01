@@ -44,6 +44,13 @@ module.exports.routes = {
   'post /login': 'AuthController.login',
   'post /createUser': 'UserController.createUser',
 
+  '/principal': {
+    view: 'principal'
+  },
+  '/wrongLogin': {
+    view: 'wrongLogin'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
