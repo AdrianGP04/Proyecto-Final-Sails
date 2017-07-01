@@ -5,25 +5,25 @@
  *
  */
 
-module.exports = {
+ module.exports = {
 
-  attributes: {
-      id: {
-          type: 'integer',
-          autoIncrement: true,
-          primaryKey: true,
-      },
+   attributes: {
+       /*id: {
+           type: 'integer',
+           autoIncrement: true,
+           primaryKey: true,
+       },*/
 
-      name: {
-          type: 'string',
-          required: true,
-          unique: true,
-      },
+       name: {
+           type: 'string',
+           required: true,
+           unique: true,
+       },
 
-      questions: {
-          collection: 'question',
-          via: 'thematic',
-      },
+       questions: {
+           collection: 'question',
+           via: 'thematic',
+       },
 
-  }
-};
+   }
+ };
