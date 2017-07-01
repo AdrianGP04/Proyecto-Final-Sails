@@ -5,20 +5,26 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
- function createUser(req, res)
- {
- 	//Pasar a wf
- 	console.log("Hola");
- 	User.create({
- 		username: req.param('nombre'),
- 		password: req.param('password'),
- 		email: req.param('mail'),
- 	}).exec((err, user) => {
- 		if(err){
- 			return res.status(500).send('Error');
- 		}
- 		return res.status(201).send('Usuario Registrado');
- 	});
+const waterfall = require('async/waterfall');
+
+ function createUser(req, res){
+    waterfall([
+        (cbwtf) => {
+            User.create({
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email,
+            }).exec(cbwtf);
+        },
+    ], (err, user) => {
+        if (err) {
+            // TODO: Show the error in a nice way
+            // TODO: Validate
+            console.log(err);
+            return res.status(500).send('Error');
+        }
+        return res.status(201).view('homepage');
+    });
  }
 
 module.exports = {
