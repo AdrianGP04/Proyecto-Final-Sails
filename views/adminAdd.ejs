@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <!--<link rel="stylesheet" href="css/app.css">-->
+    <link rel="stylesheet" type="text/css" href="/styles/register.css">
+  </head>
+  <body>
+    <div class="title-bar2">
+      <div>
+        <a href="/homeUser"><img style="width:30px;" src="/styles/home1.png"></img></a>
+      </div>
+      <center>
+        <a class="tit2" href="/admin">ADMIN CENTER</a>
+      </center>
+    </div>
+
+    <br/><br/><br/>
+
+    <form id="addQuestion" action="/addQuestion" method="post">
+    <t1> Add a question right bellow</t1>
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Question
+            <input type="text" id="Question" name="Question">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Correct Answer
+            <input type="text" id="Cans" name="CorrectAnswer">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Incorrect Answer 1
+            <input type="text" id="icans1" name="incorrectAnswer1">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Incorrect Answer 2
+            <input type="text" id="icans2" name="incorrectAnswer2">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Incorrect Answer 3
+            <input type="text" id="icans3" name="incorrectAnswer3">
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Thematic (id)
+            <input type="text" id="theme" name="Thematic">
+          </label>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit">Add Question</button>
+      </div>
+    </form>
+
+    <br/><br/><br/>
+
+    <form id="addTopic" action="/addTopic" method="post">
+      <t1> Add a topic right bellow</t1>
+      <div class="row">
+        <div class="medium-12 columns">
+          <label>Topic name
+            <input type="text" id="Topic" name="TopicName">
+          </label>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit">Add Topic</button>
+      </div>
+    </form>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type='text/javascript' src='/js/crear.js'></script>
+  </body>
