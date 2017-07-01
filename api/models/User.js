@@ -40,5 +40,8 @@ module.exports = {
           collection: 'duel',
           via: 'opponent'
       },
+      saluda: () => {
+      console.log('Hola');
+      },
   }
 };
