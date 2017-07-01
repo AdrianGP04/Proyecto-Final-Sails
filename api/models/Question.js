@@ -5,36 +5,36 @@
  *
  */
 
-module.exports = {
+ module.exports = {
 
-  attributes: {
-      id: {
-          type: 'integer',
-          autoIncrement: true,
-          primaryKey: true,
-      },
+   attributes: {
+       /*id: {
+           type: 'integer',
+           autoIncrement: true,
+           primaryKey: true,
+       },*/
 
-      text: {
-          type: 'string',
-          required: true,
-          unique: true,
-      },
+       text: {
+           type: 'string',
+           required: true,
+           unique: true,
+       },
 
-      correctAnswer: {
-          type: 'string',
-          required: true,
-          columnName: 'correct_answer',
-      },
+       correctAnswer: {
+           type: 'string',
+           required: true,
+           columnName: 'correct_answer',
+       },
 
-      incorrectAnswers: {
-          type: 'array',
-          required: true,
-          columnName: 'incorrect_answers',
-      },
+       incorrectAnswers: {
+           type: 'array',
+           required: true,
+           columnName: 'incorrect_answers',
+       },
 
-      thematic: {
-          model: 'topic',
-      },
+       thematic: {
+           model: 'topic',
+       },
 
-  }
-};
+   }
+ };

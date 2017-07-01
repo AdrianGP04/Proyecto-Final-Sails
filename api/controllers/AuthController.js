@@ -16,11 +16,17 @@
      login: function(req, res) {
          passport.authenticate('local', function(err, user, info) {
             if (err || (!user))
-                return res.redirect('/wrongLogin');
+                return res.send({
+	                message: info.message,
+                	user: user
+                });
             req.logIn(user, function(err) {
                 if (err)
 					res.send(err);
-                return res.redirect('/principal');
+                return res.send({
+                    message: info.message,
+                    user: user
+                });
             });
          })(req, res);
      },

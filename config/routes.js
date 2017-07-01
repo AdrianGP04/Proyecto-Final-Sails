@@ -38,18 +38,31 @@ module.exports.routes = {
   '/registerUsu': {
     view: 'register'
   },
+  '/admin': {
+    view: 'adminhome'
+  },
   'get /login': {
-      view: 'login'
+    view: 'login'
+  },
+  '/rm': {
+    view: 'delet'
+  },
+  '/add': {
+    view: 'adminAdd'
+  },
+  '/upd': {
+    view: 'updatetq'
   },
   'post /login': 'AuthController.login',
   'post /createUser': 'UserController.createUser',
-
-  '/principal': {
-    view: 'principal'
-  },
-  '/wrongLogin': {
-    view: 'wrongLogin'
-  },
+  'post /addQuestion': 'AdminController.addQuestions',
+  'post /addTopic': 'AdminController.addTopics',
+  'post /deleteQuestion': 'AdminController.rmQuestion',
+  'post /deleteTopic': 'AdminController.rmTopic',
+  'get /seeq': 'AdminController.seeQuestions',
+  'get /seet': 'AdminController.seeTopics',
+  'get /rmAllq': 'AdminController.rmAllQuestions',
+  'get /rmAllt': 'AdminController.rmAllTopics',
 
   /***************************************************************************
   *                                                                          *

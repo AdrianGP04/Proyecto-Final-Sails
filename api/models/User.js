@@ -7,41 +7,41 @@
 
 module.exports = {
 
-  attributes: {
-      id: {
-          type: 'integer',
-          autoIncrement: true,
-          primaryKey: true,
-      },
+ attributes: {
+     id: {
+         type: 'integer',
+         autoIncrement: true,
+         primaryKey: true,
+     },
 
-      username: {
-          type: 'string',
-          required: true,
-          unique: true,
-      },
+     username: {
+         type: 'string',
+         required: true,
+         unique: true,
+     },
 
-      password: {
-          type: 'string',
-          required: true,
-      },
+     password: {
+         type: 'string',
+         required: true,
+     },
 
-      email: {
-          type: 'email',
-          required: true,
-          unique: true,
-      },
+     email: {
+         type: 'email',
+         required: true,
+         unique: true,
+     },
 
-      challengerDuels: {
-          collection: 'duel',
-          via: 'challenger'
-      },
+     challengerDuels: {
+         collection: 'duel',
+         via: 'challenger'
+     },
 
-      opponentDuels: {
-          collection: 'duel',
-          via: 'opponent'
-      },
-      saluda: () => {
-      console.log('Hola');
-      },
-  }
+     opponentDuels: {
+         collection: 'duel',
+         via: 'opponent'
+     },
+     saluda: () => {
+     console.log('Hola');
+     },
+ }
 };
