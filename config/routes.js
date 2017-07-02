@@ -60,6 +60,7 @@ module.exports.routes = {
     view: 'wrongLogin'
   },
   'post /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
   'post /createUser': 'UserController.createUser',
   'post /addQuestion': 'AdminController.addQuestions',
   'post /addTopic': 'AdminController.addTopics',

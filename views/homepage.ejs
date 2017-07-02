@@ -10,6 +10,12 @@
     <div class="title-bar">
       <a class="tit" href="/homeUser">PREGUNTADOS</a>
     </div>
+    <% if (typeof status != 'undefined') { %>
+        <div class="callout secondary">
+            <h5> Message: </h5>
+            <p> <%= message %></p>
+        </div>
+    <% } %>
     <br/><br/><br/>
     <div class="row">
       <div class="medium-6 columns">
