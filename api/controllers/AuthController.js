@@ -16,7 +16,10 @@
      login: function(req, res) {
          passport.authenticate('local', function(err, user, info) {
             if (err || (!user))
-                return res.redirect('/wlogin');
+                return res.view('login', {
+                    credentialsError: true,
+                    message: 'Invalid credentials'
+                });
             req.logIn(user, function(err) {
                 if (err)
 					res.send(err);
