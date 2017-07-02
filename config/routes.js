@@ -53,6 +53,12 @@ module.exports.routes = {
   '/upd': {
     view: 'updatetq'
   },
+  '/principal': {
+    view: 'principal'
+  },
+  '/wlogin': {
+    view: 'wrongLogin'
+  },
   'post /login': 'AuthController.login',
   'post /createUser': 'UserController.createUser',
   'post /addQuestion': 'AdminController.addQuestions',
