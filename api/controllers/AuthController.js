@@ -16,9 +16,9 @@
      login: function(req, res) {
          passport.authenticate('local', function(err, user, info) {
             if (err || (!user))
-                return res.send({
-	                message: info.message,
-                	user: user
+                return res.view('login', {
+                    credentialsError: true,
+                    message: 'Invalid credentials'
                 });
             req.logIn(user, function(err) {
                 if (err)

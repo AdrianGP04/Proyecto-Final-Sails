@@ -16,6 +16,12 @@
       <center>
         <a class="tit2"> Iniciar sesión </a>
       </center>
+      <% if (typeof credentialsError != 'undefined') { %>
+          <div class="callout secondary">
+            <h5> An error ocurred: </h5>
+            <p> <%= message %></p>
+          </div>
+      <% } %>
     </div>
     <br/><br/><br/>
     <form id="formu" action="/login" method="post">
