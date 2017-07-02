@@ -30,6 +30,9 @@
 
      logout: function(req, res) {
          req.logout();
-         res.redirect('/');
+         res.view('homepage', {
+            status: 200,
+            message: 'Logged out succesfully'
+         });
      }
  };
