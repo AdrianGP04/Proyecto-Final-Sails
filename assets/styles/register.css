@@ -29,3 +29,15 @@ button{
   color: white;
   padding: 1%;
 }
+.m-exp{
+  background-color: crimson;
+  text-align: center;
+  border: 2px solid white;
+  border-top: 6px solid white;
+}
+.m-as{
+  font-size: 20px;
+}
+#img-admin{
+  width: 100%;
+}

@@ -17,7 +17,14 @@
         <a class="tit2" href="/admin">ADMIN CENTER</a>
       </center>
     </div>
-    <br/><br/><br/>
+    <ul class="menu expanded">
+      <li class="m-exp"><a class="m-as" href="/add">Add Topic/Question</a></li>
+      <li class="m-exp" disabled><a class="m-as" href="/upd">Update Topic/Question</a></li>
+      <li class="m-exp"><a  class="m-as" href="/seet">See All topics</a></li>
+      <li class="m-exp"><a class="m-as" href="/seeq">See All Questions</a></li>
+      <li class="m-exp"><a class="m-as" href="/rm">Delete Topic/Question</a></li>
+    </ul>
+    <br/><br/>
 <%if ( topicList.length > 0) { %>
     <form action="/deleteTopic" method="post">
       <div class="row">
