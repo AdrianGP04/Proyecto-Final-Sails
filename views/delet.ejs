@@ -18,35 +18,55 @@
       </center>
     </div>
     <br/><br/><br/>
-    <form id="addTopic" action="/deleteTopic" method="post">
+<%if ( topicList.length > 0) { %>
+    <form action="/deleteTopic" method="post">
       <div class="row">
         <div class="medium-12 columns">
           <label>Topic name
-            <input type="text" id="Topic" name="Topicid">
+            <select name="name">
+              <% for ( topicname of topicList){%>
+              <option value=<%= topicname %>>
+                <%= topicname %>
+              </option>
+              <% } %>
+            </select>
           </label>
         </div>
       </div>
-
       <div style="text-align: center;">
         <button type="submit">Delete Topic</button>
       </div>
-    </form>
-    <form id="addTopic" action="/deleteQuestion" method="post">
+      </form>
+<% } %>
+<%if ( questionList.length > 0) { %>
+    <form action="/deleteQuestion" method="post">
       <div class="row">
         <div class="medium-12 columns">
-          <label>Question id
-            <input type="text" id="Question" name="id">
+          <label>Question
+            <select name="text">
+              <% for ( questiontext of questionList){%>
+              <option value=<%= questiontext %>>
+                <%= questiontext %>
+              </option>
+              <% } %>
+            </select>
           </label>
         </div>
       </div>
-
       <div style="text-align: center;">
         <button type="submit">Delete Question</button>
       </div>
     </form>
+<% } else {%>
+  <p> You can't delete something that does not exist</p>
+<% } %>
     <br/><br/><br/>
     <div class="expanded button-group">
+      <%if ( topicList.length > 0) { %>
       <a href="/rmAllt" type="button" class="hollow admin button">Delete All topics</a>
+      <% } %>
+      <%if ( questionList.length > 0) { %>
       <a href="/rmAllq" type="button" class="hollow admin button">Delete All Questions</a>
+      <% } %>
     </div>
   </body>
