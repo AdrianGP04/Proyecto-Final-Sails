@@ -44,9 +44,6 @@ module.exports.routes = {
   'get /login': {
     view: 'login'
   },
-  '/rm': {
-    view: 'delet'
-  },
   '/principal': {
     view: 'principal'
   },
