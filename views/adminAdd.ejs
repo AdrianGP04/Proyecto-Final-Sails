@@ -17,12 +17,21 @@
         <a class="tit2" href="/admin">ADMIN CENTER</a>
       </center>
     </div>
+    <ul class="menu expanded">
+      <li class="m-exp"><a class="m-as" href="/add">Add Topic/Question</a></li>
+      <li class="m-exp" disabled><a class="m-as" href="/upd">Update Topic/Question</a></li>
+      <li class="m-exp"><a  class="m-as" href="/seet">See All topics</a></li>
+      <li class="m-exp"><a class="m-as" href="/seeq">See All Questions</a></li>
+      <li class="m-exp"><a class="m-as" href="/rm">Delete Topic/Question</a></li>
+    </ul>
+    <br/>
 <%if ( topicList.length > 0) { %>
-  <br/><br/><br/>
+  <br/>
     <form id="addQuestion" action="/addQuestion" method="post">
-    <t1> Add a question right bellow</t1>
+    <t1><strong style="font-size: 20px;"> Add a question right bellow</strong></t1>
       <div class="row">
         <div class="medium-12 columns">
+          <br/>
           <label>Question
             <input type="text" id="Question" name="Question">
           </label>
@@ -86,9 +95,10 @@
     <br/><br/><br/>
 
     <form id="addTopic" action="/addTopic" method="post">
-      <t1> Add a topic right bellow</t1>
+      <t1><strong style="font-size: 20px;"> Add a topic right bellow </strong></t1>
       <div class="row">
         <div class="medium-12 columns">
+          <br/>
           <label>Topic name
             <input type="text" id="Topic" name="TopicName">
           </label>
@@ -99,7 +109,7 @@
         <button type="submit">Add Topic</button>
       </div>
     </form>
-
+    <br/><br/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type='text/javascript' src='/js/crear.js'></script>
   </body>

@@ -50,6 +50,9 @@ module.exports.routes = {
   '/wlogin': {
     view: 'wrongLogin'
   },
+  '/upd': {
+    view: 'update'
+  },
   'post /login': 'AuthController.login',
   '/logout': 'AuthController.logout',
   '/add': 'AdminController.addpage',

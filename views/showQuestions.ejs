@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <!--<link rel="stylesheet" href="css/app.css">-->
+    <link rel="stylesheet" type="text/css" href="/styles/register.css">
+  </head>
+  <body>
+    <div class="title-bar2">
+      <div>
+        <a href="/admin"><img style="width:30px;" src="/styles/home1.png"></img></a>
+      </div>
+      <center>
+        <a class="tit2" href="/admin">ADMIN CENTER</a>
+      </center>
+    </div>
+    <ul class="menu expanded">
+      <li class="m-exp"><a class="m-as" href="/add">Add Topic/Question</a></li>
+      <li class="m-exp"><a class="m-as" href="/upd">Update Topic/Question</a></li>
+      <li class="m-exp"><a  class="m-as" href="/seet">See All topics</a></li>
+      <li class="m-exp"><a class="m-as" href="/seeq">See All Questions</a></li>
+      <li class="m-exp"><a class="m-as" href="/rm">Delete Topic/Question</a></li>
+    </ul>
+    <div class = 'content'>
+      <div class = 'ctext'>
+        <% for(question of questions){ %>
+          <table>
+            <tr>
+              <td class='important'><strong>ID</strong></td>
+              <td><strong><%= question.id %></strong></td>
+            </tr>
+            <tr>
+              <td class='important'><strong>Thematic</strong></td>
+              <td><strong><%= question.thematic %></strong></td>
+            </tr>
+            <tr>
+              <td class='important'><strong>Text</strong></td>
+              <td><strong><%= question.text %></strong></td>
+            </tr>
+            <tr>
+              <td class='important'><strong>Correct Answer</strong></td>
+              <td><strong><%= question.correctAnswer %></strong></td>
+            </tr>
+            <tr>
+              <td class='important'><strong>Incorrect Anwers</strong></td>
+              <td><strong><%= question.incorrectAnswers %></strong></td>
+            </tr>
+          </table>
+          <br/><br/>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

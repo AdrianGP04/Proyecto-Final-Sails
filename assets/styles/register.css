@@ -29,3 +29,31 @@ button{
   color: white;
   padding: 1%;
 }
+.m-exp{
+  background-color: crimson;
+  text-align: center;
+  border: 2px solid white;
+  border-top: 6px solid white;
+}
+.m-as{
+  font-size: 20px;
+}
+#img-admin{
+  width: 100%;
+}
+.content{
+  margin: 7%;
+}
+.ctext{
+  padding: 10%;
+  background-color: moccasin;
+}
+td{
+  width: 50%;
+  border:2px solid crimson;
+  text-align: center;
+}
+.important{
+  background-color: crimson;
+  color: white;
+}
