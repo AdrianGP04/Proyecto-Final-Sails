@@ -3,4 +3,4 @@
 a [Sails](http://sailsjs.org) application
 
 * Data Base: MySQL
-* Front End Framework: [Foundationn](http://foundation.zurb.com/)
+* Front End Framework: [Foundation](http://foundation.zurb.com/)
