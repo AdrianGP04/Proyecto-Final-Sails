@@ -44,15 +44,6 @@ module.exports.routes = {
   'get /login': {
     view: 'login'
   },
-  '/rm': {
-    view: 'delet'
-  },
-  '/add': {
-    view: 'adminAdd'
-  },
-  '/upd': {
-    view: 'updatetq'
-  },
   '/principal': {
     view: 'principal'
   },
@@ -61,6 +52,8 @@ module.exports.routes = {
   },
   'post /login': 'AuthController.login',
   '/logout': 'AuthController.logout',
+  '/add': 'AdminController.addpage',
+  '/rm': 'AdminController.delpage',
   'post /createUser': 'UserController.createUser',
   'post /addQuestion': 'AdminController.addQuestions',
   'post /addTopic': 'AdminController.addTopics',
