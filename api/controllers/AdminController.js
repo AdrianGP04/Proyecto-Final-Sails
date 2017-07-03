@@ -115,7 +115,9 @@ function addTopics (req, res){
 function seeQuestions(req, res){
  return Question.find()
    .then((foundQuestions) => {
-     res.ok(foundQuestions)
+     res.status(201).view('showQuestions', {
+       questions : foundQuestions,
+     });
    })
    .catch((err) =>{
      res.status(500).send("Something went wrong");
@@ -125,7 +127,9 @@ function seeQuestions(req, res){
 function seeTopics(req, res){
  return Topic.find()
    .then((foundTopics) => {
-     res.ok(foundTopics)
+     res.status(201).view('showThematics', {
+       Thems : foundTopics,
+     });
    })
    .catch((err) =>{
      res.status(500).send("Something went wrong");

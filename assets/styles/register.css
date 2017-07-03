@@ -41,3 +41,19 @@ button{
 #img-admin{
   width: 100%;
 }
+.content{
+  margin: 7%;
+}
+.ctext{
+  padding: 10%;
+  background-color: moccasin;
+}
+td{
+  width: 50%;
+  border:2px solid crimson;
+  text-align: center;
+}
+.important{
+  background-color: crimson;
+  color: white;
+}
