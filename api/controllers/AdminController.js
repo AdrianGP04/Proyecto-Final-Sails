@@ -8,15 +8,42 @@ var questionList = [];
 var topicList = [];
 
 function addpage (req, res) {
-  return res.view('adminAdd', {
-  topicList : topicList,
+  Topic.find().exec((err,foundtops) => {
+    if (err){
+      console.log('Something went really wrong and the neither me or the developers know how 2 fix it, srry');
+    }
+    for (var ids of foundtops)
+    {
+      topicList.push(ids.id);
+    }
+    return res.view('adminAdd', {
+    topicList : topicList,
+    });
   });
 }
 
 function delpage (req, res) {
-  return res.view('delet', {
-  topicList : topicList,
-  questionList: questionList,
+  Topic.find().exec((err,foundtops) => {
+    if (err){
+      console.log('Something went really wrong and the neither me or the developers know how 2 fix it, srry');
+    }
+    for (var ids of foundtops)
+    {
+      topicList.push(ids.id);
+    }
+    Question.find().exec((err,foundquests) => {
+      if (err){
+        console.log('Something went really wrong and the neither me or the developers know how 2 fix it, srry (clear copy-paste evidence -just sayin-)');
+      }
+      for (var ids of foundquests)
+      {
+        questionList.push(ids.text);
+      }
+      return res.view('delet', {
+      topicList : topicList,
+      questionList: questionList,
+      });
+    });
   });
 }
 
@@ -82,7 +109,7 @@ function rmAllTopics(req, res){
 		if(err){
 			return res.status(500).send('Error');
 		}
-    topicList = NULL;
+    topicList.splice(0,topicList.length);
 		return res.status(201).view('delet', {
     topicList : topicList,
     questionList: questionList,
@@ -126,7 +153,7 @@ function rmAllQuestions(req, res){
     topicList : topicList,
     questionList: questionList,
     });
-    questionList = NULL;
+    questionList.splice(0,questionList.length);
 	});
 }
 
