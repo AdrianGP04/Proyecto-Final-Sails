@@ -25,7 +25,7 @@
           <label>Topic name
             <select name="name">
               <% for ( topicname of topicList){%>
-              <option value=<%= topicname %>>
+              <option value= '<%= topicname %>'>
                 <%= topicname %>
               </option>
               <% } %>
@@ -43,9 +43,9 @@
       <div class="row">
         <div class="medium-12 columns">
           <label>Question
-            <select name="text">
+            <select name="question">
               <% for ( questiontext of questionList){%>
-              <option value=<%= questiontext %>>
+              <option value= '<%= questiontext %>'>
                 <%= questiontext %>
               </option>
               <% } %>
