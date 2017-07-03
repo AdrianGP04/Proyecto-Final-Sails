@@ -4,6 +4,21 @@
  * @description :: Server-side logic for managing admins
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var questionList = [];
+var topicList = [];
+
+function addpage (req, res) {
+  return res.view('adminAdd', {
+  topicList : topicList,
+  });
+}
+
+function delpage (req, res) {
+  return res.view('delet', {
+  topicList : topicList,
+  questionList: questionList,
+  });
+}
 
 function addQuestions (req, res){
   Question.create({
@@ -17,18 +32,25 @@ function addQuestions (req, res){
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(201).view('adminAdd');
+		return res.status(201).view('adminAdd', {
+    topicList : topicList,
+    });
+    questionList.push(Question.text);
 	});
 }
 
 function addTopics (req, res){
   Topic.create({
-    name: req.body.TopicName,
+    id: req.body.TopicName,
   }).exec((err,user) => {
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(201).view('adminAdd');
+    topicList.push(req.body.TopicName);
+    console.log(req.body.TopicName);
+		return res.status(201).view('adminAdd', {
+    topicList : topicList,
+    });
 	});
 }
 
@@ -53,22 +75,44 @@ function seeTopics(req, res){
 }
 
 function rmAllTopics(req, res){
+  Question.destroy({
+  });
   Topic.destroy({
   }).exec((err,user) => {
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(201).send("done");
+    topicList = NULL;
+		return res.status(201).view('delet', {
+    topicList : topicList,
+    questionList: questionList,
+    });
 	});
 }
 
 function rmTopic(req, res){
-  Topic.destroy({id: req.body.Topicid,
+  Question.destroy({Thematic : req.body.name
   }).exec((err,user) => {
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(201).send("done");
+		console.log('Questions belonging to the topic have been removed');
+  });
+  Topic.destroy({id: req.body.name,
+  }).exec((err,user) => {
+		if(err){
+			return res.status(500).send('Error');
+		}
+    let index = 0;
+    while (topicList[index] != req.body.name){
+      index++;
+    }
+    topicList.splice(index,1);
+    console.log('topic removed');
+		return res.status(201).view('delet', {
+    topicList : topicList,
+    questionList: questionList,
+    });
 	});
 }
 
@@ -78,17 +122,30 @@ function rmAllQuestions(req, res){
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(201).send("done");
+		return res.status(201).view('delet', {
+    topicList : topicList,
+    questionList: questionList,
+    });
+    questionList = NULL;
 	});
 }
 
 function rmQuestion(req, res){
-  Question.destroy({id: req.body.id,
+  Question.destroy({text: req.body.text,
   }).exec((err,user) => {
 		if(err){
 			return res.status(500).send('Error');
 		}
-		return res.status(201).send("done");
+    let index = 0;
+    while (questionList[index] != req.body.text){
+      index++;
+    }
+    questionList.splice(index,1);
+		return res.status(201).view('delet', {
+    topicList : topicList,
+    questionList: questionList,
+    });
+    console.log("done");
 	});
 }
 
@@ -101,4 +158,6 @@ module.exports = {
   rmAllTopics,
   rmQuestion,
   rmTopic,
+  addpage,
+  delpage,
 };
