@@ -20,10 +20,8 @@
             req.logIn(user, function(err) {
                 if (err)
 					           res.send(err);
-                console.log(user.id);
                 return User.findOne({id : user.id})
                   .then((foundUser) =>{
-                    console.log(foundUser);
                     res.status(201).view('principal', {
                       users : foundUser
                     });
