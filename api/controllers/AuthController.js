@@ -19,8 +19,17 @@
                 return res.redirect('/wlogin');
             req.logIn(user, function(err) {
                 if (err)
-					res.send(err);
-                return res.redirect('/principal');
+					           res.send(err);
+                console.log(user.id);
+                return User.findOne({id : user.id})
+                  .then((foundUser) =>{
+                    console.log(foundUser);
+                    res.status(201).view('principal', {
+                      users : foundUser
+                    });
+                  }).catch((err) =>{
+                    res.status(500).send("Something went wrong");
+                  });
             });
          })(req, res);
      },

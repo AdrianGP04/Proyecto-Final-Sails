@@ -53,6 +53,12 @@ module.exports.routes = {
   '/upd': {
     view: 'update'
   },
+  '/gamevsplayer': {
+    view: 'gplayer'
+  },
+  '/gamevscompu': {
+    view: 'gcompu'
+  },
   'post /login': 'AuthController.login',
   '/logout': 'AuthController.logout',
   '/add': 'AdminController.addpage',

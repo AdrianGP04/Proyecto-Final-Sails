@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
@@ -9,22 +10,98 @@
     <link rel="stylesheet" type="text/css" href="/styles/princip.css">
   </head>
   <body>
+    <!--Top-Bar-->
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
           <li id="bar-title" class="menu-text"><strong>PREGUNTADOS</strong></li>
           <li class="li"><a href="/principal"> </a></li>
-          <li class="li"><input type="search" placeholder="Search"></li>
-          <li class="li"><button type="button" class="button">Search</button></li>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="menu">
-          <li class="li"><a class="a" href="#">One</a></li>
-          <li class="li"><a class="a" href="#">Two</a></li>
+          <li class="li"><img style="width: 25px;" src="/styles/user1.png"></img></li>
+          <li class="li"><a class="a" href="#"> </a></li>
+          <li class="li"> <%= users.username %></li>
+          <li class="li"><a class="a" href="#"> </a></li>
+          <li class="li"><a class="a" href="#"> </a></li>
+          <li class="li"><a class="a" href="#"> </a></li>
           <li class="li"><a class="a" href="/logout"><img style="width: 25px;" src="/styles/exit1.png"></img></a></li>
         </ul>
       </div>
     </div>
+    <br/><br/>
+    <!--User Profile-->
+    <div class="row" style="background-color: moccasin;">
+      <div class="small-6 columns">
+        <br/>
+        <div style="background-color: moccasin; padding:2%;">
+          <center>
+            <div style="width: 98%; background-color:crimson;">
+              <img style="width:27%;" src="/styles/user1.png"></img>
+            </div>
+        </center>
+        </div>
+        <br/>
+      </div>
+      <div class="small-6 columns">
+        <div style="background-color: moccasin; padding:2%;">
+          <br/>
+          <center>
+            <table>
+              <tr>
+                <td>ID</td>
+                <td><%= users.id %></td>
+              </tr>
+              <tr>
+                <td>Username</td>
+                <td><%= users.username %></td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td><%= users.email %></td>
+              </tr>
+            </table>
+        </center>
+        </div>
+      </div>
+    </div>
+    <br/><br/><br/>
+    <!--Game Options-->
+    <div style="background-color: green;">
+      <center>
+        <h2 style="color: white;">GAME OPTIONS</h2>
+      </center>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="card">
+          <center>
+            <div class="card-section">
+              <br/><br/><br/>
+              <img  style="width:70%;" src="/styles/vsplayer.jpg">
+              <br/><br/><br/>
+            </div>
+            <div style="background-color: crimson;" class="card-section">
+              <a href="/gamevsplayer">VS Player</a>
+            </div>
+          </center>
+        </div>
+      </div>
+      <div class="medium-6 columns">
+        <div class="card">
+          <center>
+            <div class="card-section">
+              <img  style="width:68%;" src="/styles/vscompu.jpg">
+            </div>
+            <div style="background-color: crimson;" class="card-section">
+              <a href="/gamevscompu">VS Computer</a>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+    <br/><br/><br/>
   </body>
 </html>
