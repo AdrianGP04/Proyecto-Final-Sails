@@ -7,7 +7,7 @@ a [Sails](http://sailsjs.org) application
 * Extra Tools: [passport.js](http://passportjs.org/)
 
 
-##Instructions
+## Instructions
 
 1. You need to clone this repository.
 2. You need to setup MySQL.
