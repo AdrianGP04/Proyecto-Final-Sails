@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
@@ -110,7 +109,60 @@
     </div>
     <br/>
     <div class="row" style="background-color: moccasin;">
-      Si hay duelos ponerlos aqui, sino poner un mensaje de que no hay
+      <%= users.username %> vs Players
+      <table>
+        <tr>
+          <td>On-going Duels</td>
+          <td>
+            <% if (on_goingDuels[0] != 'empty') { %>
+              <% for (var words of on_goingDuels) {%>
+                <%= words %>
+              <% }%>
+            <% } else { %>
+              <%= users.username %> is currently not playing with other users
+            <% } %>
+          </td>
+        </tr>
+        <tr>
+          <td>Finished Duels</td>
+          <td>
+            <% if (finishedDuels[0] != 'empty') { %>
+              <% for (var words of finishedDuels) {%>
+                <%= words %>
+              <% } %>
+            <% } else { %>
+              <%= users.username %> hasn't finished any duel againts other players
+            <% } %>
+          </td>
+        </tr>
+      </table>
+      <%= users.username %> vs computer
+      <table>
+        <tr>
+          <td>On-going Duels</td>
+          <td>
+            <% if (on_goingPCDuels[0] != 'empty') { %>
+              <% for (var words of on_goingPCDuels) {%>
+                <%= words %>
+              <% }%>
+            <% } else { %>
+              <%= users.username %> is currently not playing against a computer
+            <% } %>
+          </td>
+        </tr>
+        <tr>
+          <td>Finished Duels</td>
+          <td>
+            <% if (finishedPCDuels[0] != 'empty') { %>
+              <% for (var words of finishedPCDuels) {%>
+                <%= words %>
+              <% }%>
+            <% } else { %>
+              <%= users.username %> hasn't finished any duel againts a computer
+            <% } %>
+          </td>
+        </tr>
+      </table>
     </div>
     <br/><br/><br/>
   </body>
