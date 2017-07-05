@@ -49,15 +49,15 @@
           <center>
             <table>
               <tr>
-                <td>ID</td>
+                <td style="background-color: crimson; color: white;">ID</td>
                 <td><%= users.id %></td>
               </tr>
               <tr>
-                <td>Username</td>
+                <td style="background-color: crimson; color: white;">Username</td>
                 <td><%= users.username %></td>
               </tr>
               <tr>
-                <td>Email</td>
+                <td style="background-color: crimson; color: white;">Email</td>
                 <td><%= users.email %></td>
               </tr>
             </table>
@@ -70,6 +70,12 @@
     <div style="background-color: green;">
       <center>
         <h2 style="color: white;">GAME OPTIONS</h2>
+      </center>
+    </div>
+    <br/><br/>
+    <div style="background-color: crimson; font-size: 15px; padding:1%; color: white; margin-left: 3%; margin-right: 80%">
+      <center>
+        <strong>NEW GAME</strong>
       </center>
     </div>
     <br/>
@@ -101,18 +107,18 @@
         </div>
       </div>
     </div>
-    <br/><br/><br/>
+    <br/><br/><br/><br/>
     <div style="background-color: crimson; font-size: 15px; padding:1%; color: white; margin-left: 3%; margin-right: 80%">
       <center>
         <strong>PREVIEW GAMES</strong>
       </center>
     </div>
     <br/>
-    <div class="row" style="background-color: moccasin;">
+    <div class="row" style="background-color: moccasin; padding: 2%;">
       <%= users.username %> vs Players
       <table>
         <tr>
-          <td>On-going Duels</td>
+          <td style="background-color: crimson; color: white;">On-going Duels</td>
           <td>
             <% if (on_goingDuels[0] != 'empty') { %>
               <% for (var words of on_goingDuels) {%>
@@ -124,14 +130,14 @@
           </td>
         </tr>
         <tr>
-          <td>Finished Duels</td>
+          <td style="background-color: crimson; color: white;">Finished Duels</td>
           <td>
             <% if (finishedDuels[0] != 'empty') { %>
               <% for (var words of finishedDuels) {%>
                 <%= words %>
               <% } %>
             <% } else { %>
-              <%= users.username %> hasn't finished any duel againts other players
+              <%= users.username %> hasnt finished any duel againts other players
             <% } %>
           </td>
         </tr>
@@ -139,7 +145,7 @@
       <%= users.username %> vs computer
       <table>
         <tr>
-          <td>On-going Duels</td>
+          <td style="background-color: crimson; color: white;">On-going Duels</td>
           <td>
             <% if (on_goingPCDuels[0] != 'empty') { %>
               <% for (var words of on_goingPCDuels) {%>
@@ -151,14 +157,14 @@
           </td>
         </tr>
         <tr>
-          <td>Finished Duels</td>
+          <td style="background-color: crimson; color: white;">Finished Duels</td>
           <td>
             <% if (finishedPCDuels[0] != 'empty') { %>
               <% for (var words of finishedPCDuels) {%>
                 <%= words %>
               <% }%>
             <% } else { %>
-              <%= users.username %> hasn't finished any duel againts a computer
+              <%= users.username %> hasnt finished any duel againts a computer
             <% } %>
           </td>
         </tr>

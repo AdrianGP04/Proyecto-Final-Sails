@@ -1,0 +1,20 @@
+#top{
+  background-color: crimson;
+  color: white;
+  font-size: 25px;
+  padding: 3%;
+  text-align: center;
+}
+#text-select{
+  padding-left: 7%;
+  font-size: 25px;
+}
+#game-options{
+  background-color: moccasin;
+  margin:7%;
+  padding:3%;
+}
+.button{
+  font-size: 20px;
+  border: 2px solid black;
+}
