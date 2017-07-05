@@ -6,6 +6,11 @@
  */
 
  var passport = require('passport');
+ var on_goingDuels = [];
+var finishedDuels = [];
+var on_goingPCDuels = [];
+var finishedPCDuels = [];
+
 
  module.exports = {
      _config: {
@@ -22,8 +27,57 @@
 					           res.send(err);
                 return User.findOne({id : user.id})
                   .then((foundUser) =>{
-                    res.status(201).view('principal', {
-                      users : foundUser
+                    Duel.find().exec((err,foundDuels) => {
+                     if (err || foundDuels == ''){
+                       console.log("There are no Duels ur game is dead af");
+                       on_goingDuels.push('empty');
+                       finishedDuels.push('empty');
+                       on_goingPCDuels.push('empty');
+                       finishedPCDuels.push('empty');
+                       console.log(on_goingDuels[0]);
+                       return res.status(201).view('principal', {
+                        users : foundUser,
+                        on_goingDuels : on_goingDuels,
+                        finishedDuels : finishedDuels,
+                        on_goingPCDuels : on_goingPCDuels,
+                        finishedPCDuels : finishedPCDuels,
+                      });
+                     }else {
+                     console.log("here @ the else, if you didn't have shit in the database, something is not ok");
+                     console.log(foundDuels);
+                     for (var duelz of foundDuels)
+                     {
+                       console.log('doin stuf');
+                       if (duelz.challenger == foundUser.id || duelz.opponent == foundUser.id && duelz.opponent != 'computer')
+                       {
+                         if (duelz.status == 'on-going')
+                            on_goingDuels.push(duelz.challenger +'vs' + duelz.opponent );
+                         else
+                           finishedDuels.push(duelz.challenger +'vs' + duelz.opponent + '. Winner: (aquí va el ganador)');
+                       }
+                       else
+
+                       if (duelz.challenger == user && duelz.opponent == 'computer')
+                       {
+                         if (duelz.status == 'on-going')
+                            on_goingPCDuels.push(foundUser.username +'vs computer id:'+ duelz.id );
+                         else
+                           finishedPCDuels.push(foundUser.username +'vs computer id:'+duelz.id + 'Winner: (aquí va el ganador)');
+                       }
+                       console.log('doin stuf');
+                       on_goingDuels.push('empty');
+                       finishedDuels.push('empty');
+                       on_goingPCDuels.push('empty');
+                       finishedPCDuels.push('empty');
+                       return res.status(201).view('principal', {
+                        users : foundUser,
+                        on_goingDuels : on_goingDuels,
+                        finishedDuels : finishedDuels,
+                        on_goingPCDuels : on_goingPCDuels,
+                        finishedPCDuels : finishedPCDuels,
+                      });
+                     }
+                   }
                     });
                   }).catch((err) =>{
                     res.status(500).send("Something went wrong");
