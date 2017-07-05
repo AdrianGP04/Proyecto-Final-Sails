@@ -29,6 +29,11 @@ module.exports = {
           columnName: 'opponent_ answers',
       },
 
+      status: {
+        type: 'string',
+        required: true,
+      },
+
       challenger: {
           model: 'user',
       },
